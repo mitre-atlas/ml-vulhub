@@ -4,8 +4,15 @@ Serve [MMDetection](https://github.com/open-mmlab/mmdetection) using [TorchServe
 
 ### Run
 
+Start the server:
 ```
 docker-compose up
+```
+
+Sample query:
+```
+curl -O curl -O https://raw.githubusercontent.com/pytorch/serve/master/docs/images/3dogs.jpg
+curl http://127.0.0.1:8080/predictions/faster_rcnn_r50_fpn_2x_coco -T 3dogs.jpg
 ```
 
 ### Build
@@ -24,5 +31,6 @@ docker run --rm -v `pwd`/model-store:/home/model-server/model-store --entrypoint
 ```
 
 ### MMDetection References:
-[mmdet-serve Dockerfile](https://github.com/open-mmlab/mmdetection/tree/master/docker/serve)
-[Model Serving](https://github.com/open-mmlab/mmdetection/blob/ca11860f4f3c3ca2ce8340e2686eeaec05b29111/docs/en/useful_tools.md#model-serving)
+
+- [mmdet-serve Dockerfile](https://github.com/open-mmlab/mmdetection/tree/master/docker/serve)
+- [Model Serving](https://github.com/open-mmlab/mmdetection/blob/ca11860f4f3c3ca2ce8340e2686eeaec05b29111/docs/en/useful_tools.md#model-serving)

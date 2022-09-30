@@ -1,7 +1,7 @@
 version: "3.3"
 
 services:
-    mmdet-serve:
+    torchserve:
         image: pytorch/torchserve
         ports:
             - 8080:8080

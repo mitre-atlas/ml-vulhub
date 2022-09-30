@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+    mmdet-serve:
+        image: pytorch/torchserve
+        ports:
+            - 8080:8080
+            - 8081:8081
+            - 8082:8082
+        volumes:
+            - ./model-store:/home/model-server/model-store
+
+volumes:
+    model-store:
+        external: false

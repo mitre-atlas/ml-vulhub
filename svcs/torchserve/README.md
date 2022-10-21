@@ -12,7 +12,6 @@ docker-compose up
 Register the models:
 ```
 curl -v -X POST "http://localhost:8081/models?initial_workers=1&synchronous=true&url=/home/model-server/model-store/fastrcnn.mar"
-
 curl -v -X POST "http://localhost:8081/models?initial_workers=1&synchronous=true&url=/home/model-server/model-store/alexnet.mar"
 ```
 

@@ -1,0 +1,36 @@
+version: "3.3"
+
+services:
+    devbox: # represents the compromised developer machine
+        image: ubuntu:22.04
+        tty: true
+        stdin_open: true
+    mc: # helper image for populating model zoo
+        image: minio/mc
+        tty: true
+        stdin_open: true
+        volumes:
+            - ./model-store:/model-store
+    minio: # object store for model zoo
+        image: minio/minio
+        command: server /data --console-address ":9001"
+        ports:
+            - 9000:9000
+            - 9001:9001
+        volumes:
+            - ./data:/data
+    torchserve: # serves ml models for inferencing
+        image: pytorch/torchserve
+        ports:
+            - 8080:8080
+            - 8081:8081
+            - 8082:8082
+        command: torchserve --model-store /home/model-server/model-store --start --models resnet-18=resnet-18.mar
+        volumes:
+            - ./model-store:/home/model-server/model-store
+
+volumes:
+    data:
+        external: false
+    model-store:
+        external: false

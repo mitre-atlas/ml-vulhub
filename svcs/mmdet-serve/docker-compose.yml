@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
     mmdet-serve:
-        image: mlvulhub/mmdet-serve:latest
+        image: mlvh/mmdet-serve:latest
         ports:
             - 8080:8080
             - 8081:8081

@@ -3,6 +3,8 @@ FROM ubuntu:20.04
 RUN apt-get update && apt-get install -y \
 	curl \
 	git \
+	iproute2 \ 
+	nmap \
 	&& rm -rf /var/lib/apt/lists/*
 
 ARG USER=mldev

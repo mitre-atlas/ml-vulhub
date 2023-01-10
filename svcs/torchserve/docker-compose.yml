@@ -3,6 +3,7 @@ version: "3.3"
 services:
     torchserve:
         image: pytorch/torchserve
+        command: torchserve --start --model-store /home/model-server/model-store/ --models all
         ports:
             - 8080:8080
             - 8081:8081

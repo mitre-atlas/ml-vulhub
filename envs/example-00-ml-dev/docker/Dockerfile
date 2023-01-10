@@ -17,6 +17,9 @@ RUN curl https://dl.min.io/client/mc/release/linux-amd64/mc \
 		--create-dirs \
 	    -o $HOME/minio-binaries/mc && \
 	chmod +x $HOME/minio-binaries/mc && \
-	echo "PATH=$PATH:$HOME/minio-binaries/" >> $HOME/.bashrc
+	echo "PATH=$PATH:$HOME/minio-binaries/" >> $HOME/.bashrc && \
+	$HOME/minio-binaries/mc ls
+
+ADD mc-config.json /home/$USER/.mc/config.json
 
 ENTRYPOINT /bin/bash

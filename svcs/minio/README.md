@@ -24,12 +24,12 @@ docker-compose up
 Populate the object store:
 ```
 # setup client to access the minio instance
-mc alias set ml http://localhost:9000 minioadmin minioadmin
+mc alias set s3 http://localhost:9000 minioadmin minioadmin
 
 # create a bucket to host a model zoo
-mc mb ml/zoo
+mc mb s3/zoo
 
 # download model and copy it to the zoo bucket
 wget https://download.pytorch.org/models/resnet18-f37072fd.pth
-mc cp resnet18-f37072fd.pth  ml/zoo
+mc cp resnet18-f37072fd.pth  s3/zoo
 ```

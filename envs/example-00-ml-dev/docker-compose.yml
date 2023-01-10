@@ -5,6 +5,8 @@ services:
         image: mlvh/mldev
         tty: true
         stdin_open: true
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
         build:
             context: docker
             dockerfile: Dockerfile
